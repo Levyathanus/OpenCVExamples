@@ -7,9 +7,9 @@ cap = cv2.VideoCapture(0)
 print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-# set WIDTH
+# set WIDTH (3)
 #cap.set(3, 1280) # ogni proprietà ha anche un intero associato
-# set HEIGHT
+# set HEIGHT (4)
 #cap.set(4, 1024) # set solo in base alla risoluzione della videocamera
 #print(cap.get(3))
 #print(cap.get(4))
