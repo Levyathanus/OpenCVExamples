@@ -3,7 +3,7 @@ import numpy as np
 
 # vedi introduzione su HSV colorspace
 
-
+# funzione di callback dummy
 def nothing(x):
     pass
 
