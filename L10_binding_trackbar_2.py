@@ -19,7 +19,7 @@ while(True):
     img = cv2.imread('./opencv/samples/data/lena.jpg')
     pos = cv2.getTrackbarPos('CP', 'image')
     font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(img, str(pos), (50,150), font, 4, (0,0,255))
+    cv2.putText(img, str(pos), (50,150), font, 4, (0,0,255), 5)
     key = cv2.waitKey(1) & 0xFF
     if key == 27:
         break
