@@ -19,6 +19,7 @@ while(True):
     img = cv2.imread('./opencv/samples/data/lena.jpg')
     pos = cv2.getTrackbarPos('CP', 'image')
     font = cv2.FONT_HERSHEY_SIMPLEX
+    # scrivo il valore della trackbar sull'immagine
     cv2.putText(img, str(pos), (50,150), font, 4, (0,0,255), 5)
     key = cv2.waitKey(1) & 0xFF
     if key == 27:
@@ -27,6 +28,7 @@ while(True):
     if s == 0:
         pass
     else:
+        # se s == 1 metto l'immagine in bianco e nero
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img = cv2.imshow('image', img)
 
