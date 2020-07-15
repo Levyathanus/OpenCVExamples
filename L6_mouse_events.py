@@ -12,9 +12,9 @@ def click_event(event, x, y, flags, param):
         cv2.imshow('image', img)
     elif event == cv2.EVENT_RBUTTONDOWN:
         # stampo i canali BGR del punto cliccato
-        blue = img[y, x, 0]
-        green = img[y, x, 1]
-        red = img[y, x, 2]
+        blue = img[x, y, 0]
+        green = img[x, y, 1]
+        red = img[x, y, 2]
         strBGR = str(blue) + ', ' + str(green) + ', ' + str(red)
         cv2.putText(img, strBGR, (x, y), font, .5, (255, 100, 125), 2)
         cv2.imshow('image', img)
