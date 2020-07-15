@@ -16,7 +16,7 @@ def click_event(event, x, y, flags, param):
 
 
 #img = np.zeros((512,512,3), np.uint8)
-img = cv2.imread('lena.jpg')
+img = cv2.imread('./opencv/samples/data/lena.jpg')
 cv2.imshow('image', img)
 
 # nomi della stessa immagine uguale dappertutto

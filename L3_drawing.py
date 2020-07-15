@@ -3,7 +3,7 @@
 import numpy as np
 import cv2
 
-#img = cv2.imread('lena.jpg', 1)
+#img = cv2.imread('./opencv/samples/data/lena.jpg', 1)
 img = np.zeros([512,512,3],np.uint8) # immagine nera con numpy
 
 # disegnare una linea cv2.line(image,xy_start,xy_end,BGR_color,thickness)
