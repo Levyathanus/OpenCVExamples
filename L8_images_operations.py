@@ -24,7 +24,7 @@ print(img2.shape)
 
 # N.B. per sommare due immagini devono avere stesse dimensioni e stesso numero di canali
 dst = cv2.add(img, img2) # somma due vettori (matrici/immagini) o un vettore e uno scalare
-dst2 = cv2.addWeighted(img, .9, img2, .1, 0) # somma due immagini con pesi diversi e costante (0)
+dst2 = cv2.addWeighted(img, .95, img2, .1, 0) # somma due immagini con pesi diversi e costante (0)
 
 #cv2.imshow('image', img)
 #cv2.imshow('image2', img2)
