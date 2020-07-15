@@ -9,10 +9,10 @@ img = np.zeros([512,512,3],np.uint8) # immagine nera con numpy
 # disegnare una linea cv2.line(image,xy_start,xy_end,BGR_color,thickness)
 img = cv2.line(img, (0,0), (255,255), (255, 0, 0), 5)
 img = cv2.arrowedLine(img, (0,0), (0,255), (255, 0, 0), 5)
-# disegnare un rettangolo: top-left, bottom-right
+# disegnare un rettangolo: top-left, bottom-right, colore, thickness
 # se thickness = -1 riempi la forma con il colore
 img = cv2.rectangle(img, (384,0),(510,128),(0,0,255),5)
-# disegnare un cerchio: centro, raggio
+# disegnare un cerchio: centro, raggio, colore, thickness
 img = cv2.circle(img,(447,63),63,(0,255,0),-1)
 # scrivere testo sull'immagine
 font = cv2.FONT_HERSHEY_SIMPLEX # vedi altri font
