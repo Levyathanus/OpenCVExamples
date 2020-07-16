@@ -14,7 +14,7 @@ plt.show()
 # images = [img1, img2, ...]
 ########### subplot ############
 # for i in range(0, len(images)):
-#   plt.subplot(rows, columns, i), plt.imshow(images[i], 'gray')
+#   plt.subplot(rows, columns, i+1), plt.imshow(images[i], 'gray')
 #   plt.title(titles[i])
 #   plt.xticks([]), plt.yticks([])
 #  plt.show()
