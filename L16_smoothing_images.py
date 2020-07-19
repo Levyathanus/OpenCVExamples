@@ -5,9 +5,9 @@ from matplotlib import pyplot as plt
 # various types of filters: homogeneous, gaussian, median...
 
 #img = cv2.imread('./opencv/samples/data/opencv-logo.png')
-#img = cv2.imread('eye.jpg')
+img = cv2.imread('eye.jpg')
 #img = cv2.imread('water.png')
-img = cv2.imread('./opencv/samples/data/lena.jpg')
+#img = cv2.imread('./opencv/samples/data/lena.jpg')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 kernel = np.ones((5,5), np.float32)/25 # vedi formula del kernel per il filtro omogeneo
