@@ -8,16 +8,38 @@ from matplotlib import pyplot as plt
 # 4) Double threshold
 # 5) Edge tracking by histeresis
 
+def nothing(x):
+    pass
+
 img = cv2.imread('./opencv/samples/data/messi5.jpg', 0)
+cv2.namedWindow('Edges')
 
 
+# Canny(img, threshold1, threshold2)
+#canny = cv2.Canny(img, 100, 200)
 
-titles = ['image']
-images = [img]
+# trackbar for threshold1 and threshold2
+cv2.createTrackbar('TH1', 'Edges', 0, 255, nothing)
+cv2.createTrackbar('TH2', 'Edges', 0, 255, nothing)
 
-for i in range(len(images)):
-    plt.subplot(1, 1, i+1), plt.imshow(images[i], 'gray')
-    plt.title(titles[i])
-    plt.xticks([]), plt.yticks([])
+while(True):
+    cv2.imshow('image', img)
+    key = cv2.waitKey(1) & 0xFF
+    if key == 27:
+        break
+    th1 = cv2.getTrackbarPos('TH1', 'Edges')
+    th2 = cv2.getTrackbarPos('TH2', 'Edges')
+    canny = cv2.Canny(img, th1, th2)
+    cv2.imshow('Canny', canny)
 
-plt.show()
+#titles = ['image', 'Canny']
+#images = [img, canny]
+
+#for i in range(len(images)):
+#    plt.subplot(1, 2, i+1), plt.imshow(images[i], 'gray')
+#    plt.title(titles[i])
+#    plt.xticks([]), plt.yticks([])
+
+#plt.show()
+
+cv2.destroyAllWindows()
