@@ -4,7 +4,8 @@ img = cv2.imread('shapes.jpg')
 imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 _, thresh = cv2.threshold(imgGray, 240, 255, cv2.THRESH_BINARY)
-contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+median_blur = cv2.medianBlur(thresh, 5) # aggiunto per risolvere gli errori di contorno (esagono) dovuti a rumore
+contours, _ = cv2.findContours(median_blur, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 for contour in contours:
     approx_polygon = cv2.approxPolyDP(contour, 0.01*cv2.arcLength(contour, True), True)
@@ -32,9 +33,8 @@ for contour in contours:
     else:
         cv2.putText(img, "Circle", (x,y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0))
 
-# TODO: controllare errore esagono
-
 cv2.imshow('Thresh', thresh)
+cv2.imshow('MedianBlur', median_blur)
 cv2.imshow("Shapes", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
