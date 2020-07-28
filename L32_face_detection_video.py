@@ -4,7 +4,7 @@ import cv2
 
 face_cascade = cv2.CascadeClassifier('./opencv/data/haarcascades/haarcascade_frontalface_default.xml')
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) # da webcam
 while cap.isOpened():
     _, img = cap.read()
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
