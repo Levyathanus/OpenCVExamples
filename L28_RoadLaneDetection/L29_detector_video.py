@@ -41,6 +41,7 @@ def process(img):
     masked_img = region_of_interest(canny_img, np.array([ROI_vertices], np.int32))
 
     # probabilistic Hough line transform
+    # provare a cambiare i parametri per il risultato desiderato
     lines = cv2.HoughLinesP(masked_img, rho=6, theta=np.pi/180, threshold=50, lines=np.array([]), minLineLength=40, maxLineGap=100)
     line_img = draw_lines(img, lines)
     return line_img
