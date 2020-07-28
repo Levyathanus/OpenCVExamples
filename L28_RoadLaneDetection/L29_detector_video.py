@@ -18,7 +18,7 @@ def draw_lines(img, lines):
         (new_img.shape[0], new_img.shape[1], new_img.shape[2]), dtype=np.uint8)
     for line in lines:
         for x1, y1, x2, y2 in line:
-            cv2.line(blank_img, (x1, y1), (x2, y2), (0, 0, 255), thickness=3)
+            cv2.line(blank_img, (x1, y1), (x2, y2), (255, 0, 0), thickness=3)
     img = cv2.addWeighted(new_img, 0.8, blank_img, 1, 0.0)
     return img
 
@@ -34,15 +34,14 @@ def process(img):
     ]
 
     # Canny edge detection before masking
-    gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     canny_img = cv2.Canny(gray_img, 100, 200)
 
     # masking the ROI
     masked_img = region_of_interest(canny_img, np.array([ROI_vertices], np.int32))
 
     # probabilistic Hough line transform
-    lines = cv2.HoughLinesP(masked_img, rho=6, theta=np.pi/60, threshold=160,
-                            lines=np.array([]), minLineLength=40, maxLineGap=25)
+    lines = cv2.HoughLinesP(masked_img, rho=6, theta=np.pi/180, threshold=50, lines=np.array([]), minLineLength=40, maxLineGap=100)
     line_img = draw_lines(img, lines)
     return line_img
 
