@@ -35,14 +35,14 @@ def process(img):
 
     # Canny edge detection before masking
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    canny_img = cv2.Canny(gray_img, 100, 200)
+    canny_img = cv2.Canny(gray_img, 100, 120)
 
     # masking the ROI
     masked_img = region_of_interest(canny_img, np.array([ROI_vertices], np.int32))
 
     # probabilistic Hough line transform
     # provare a cambiare i parametri per il risultato desiderato
-    lines = cv2.HoughLinesP(masked_img, rho=6, theta=np.pi/180, threshold=50, lines=np.array([]), minLineLength=40, maxLineGap=100)
+    lines = cv2.HoughLinesP(masked_img, rho=2, theta=np.pi/180, threshold=50, lines=np.array([]), minLineLength=40, maxLineGap=100)
     line_img = draw_lines(img, lines)
     return line_img
 
