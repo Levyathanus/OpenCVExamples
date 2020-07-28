@@ -51,7 +51,7 @@ while cap.isOpened():
     ret, frame = cap.read()
     if ret == True:
         frame = process(frame)
-        cv2.imshow(frame)
+        cv2.imshow('VideoTest', frame)
         if cv2.waitKey(1) & 0xFF == 27:
             break
     else:
