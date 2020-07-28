@@ -19,7 +19,7 @@ def draw_lines(img, lines):
     img = cv2.addWeighted(new_img, 0.8, blank_img, 1, 0.0)
     return img
 
-img = cv2.imread('../road.png')
+img = cv2.imread('road.png')
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # per usare matplotlib
 
 print(img.shape)
